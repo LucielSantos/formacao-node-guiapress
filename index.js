@@ -3,6 +3,7 @@ const app = express();
 
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cors = require('cors');
 const connection = require('./database/database');
 
 const categoriesController = require('./categories/CategoriesController');
@@ -26,6 +27,7 @@ app.use(session({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(express.static('public'))
 
